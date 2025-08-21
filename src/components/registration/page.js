@@ -250,18 +250,19 @@ import tw from "twin.macro";
 
 
 // Outer Container stretched horizontally
-const PageContainer = tw.div`min-h-screen flex items-center justify-center bg-gray-100`;
-const ContentWrapper = tw.div`w-full max-w-6xl bg-white rounded-2xl shadow-lg flex overflow-hidden`;
+const PageContainer = tw.div`min-h-screen flex items-center justify-center bg-gray-100 p-4`;
+const ContentWrapper = tw.div`w-full max-w-6xl bg-white rounded-2xl shadow-lg flex flex-col lg:flex-row overflow-hidden`;
 
 // Left Panel (illustration / text)
-const LeftPanel = tw.div`w-1/2 bg-primary-500 text-white flex flex-col justify-center items-center p-12`;
-const Heading = tw.h1`text-4xl font-bold mb-4`;
-const SubHeading = tw.p`text-lg opacity-75 text-center`;
+const LeftPanel = tw.div`w-full lg:w-1/2 bg-primary-500 text-white flex flex-col justify-center items-center p-8 lg:p-12 text-center lg:text-left`;
+const Heading = tw.h1`text-3xl lg:text-4xl font-bold mb-4`;
+const SubHeading = tw.p`text-base lg:text-lg opacity-75`;
+
 // Styled Heading
-const SectionHeading = tw.h2`text-xl font-semibold mb-4`;
+const SectionHeading = tw.h2`text-lg lg:text-xl font-semibold mb-4`;
 
 // Right Panel (form)
-const RightPanel = tw.div`w-1/2 p-12`;
+const RightPanel = tw.div`w-full lg:w-1/2 p-6 lg:p-12`;
 
 // Stepper
 const Stepper = tw.div`flex justify-center gap-12 mb-10`;
@@ -515,7 +516,7 @@ const RegistrationForm = () => {
                 <Field>
                   <div className="flex flex-col gap-2">
                     <label className="font-medium">Address Type</label>
-                    <RadioGroup>
+                    <RadioGroup className="flex flex-col sm:flex-row sm:gap-6 gap-4">
                       {/* Permanent */}
                       <RadioLabel>
                         <RadioInput
@@ -542,8 +543,8 @@ const RegistrationForm = () => {
                         <span>Current</span>
                       </RadioLabel>
 
-                      {/* Office (new option) */}
-                      <RadioLabel>
+                      {/* Office */}
+                      {/* <RadioLabel>
                         <RadioInput
                           type="radio"
                           name="addressType"
@@ -553,10 +554,11 @@ const RegistrationForm = () => {
                           required
                         />
                         <span>Office</span>
-                      </RadioLabel>
+                      </RadioLabel> */}
                     </RadioGroup>
                   </div>
                 </Field>
+
                 {/* Available Dish Type as custom circles */}
                 <Field>
                   <Label>Available Dish Type</Label>
